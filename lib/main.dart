@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'pages/user_input.dart';
+// Re-comment out the following in order to access the UserInput page
+//import 'pages/user_input.dart';
+
+import 'pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: UserInput(),
+      // For user Input
+      //home: UserInput(),
+      home: HomePage(),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
     );
   }
 }

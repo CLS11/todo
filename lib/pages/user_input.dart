@@ -22,26 +22,29 @@ class _UserInputState extends State<UserInput> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-            child: Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-
-                      //greeting user
-                      Text(greetmessage),
-                      //text field to get input from user
-                      TextField(
-                          controller: Controller,
-                          decoration:
-                              InputDecoration(border: OutlineInputBorder(),
-                              hintText: "Enter your name..")),
-                      //button
-                      ElevatedButton(
-                        onPressed: greetUser,
-                        child: Text("Tap here!"),
-                      ),
-                    ]))));
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //greeting user
+              Text(greetmessage),
+              //text field to get input from user
+              TextField(
+                  controller: Controller,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: "Enter your name..")),
+              //button
+              ElevatedButton(
+                onPressed: greetUser,
+                child: Text("Tap here!"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

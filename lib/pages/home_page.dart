@@ -22,14 +22,22 @@ class _HomePageState extends State<HomePage> {
       toDoList[index][1] = !toDoList[index][1];
     });
   }
-
+//Saving tasks
+void savenewtasks()
+{
+  setState((){
+    toDoList.add([_controller.text,false]);
+  });
+  Navigator.of(context).pop();
+}
   //Adding tasks
   void newtasks() {
     showDialog(
         context: context,
         builder: (context) {
-          return DialogBox();
-        });
+          return const DialogBox();
+        }
+    );
   }
 
   @override
@@ -43,8 +51,9 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
+        onPressed: newtasks,
+        child:  Icon(Icons.add),
+
       ),
       body: ListView.builder(
           itemCount: toDoList.length,

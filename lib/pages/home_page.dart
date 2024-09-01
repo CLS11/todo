@@ -35,25 +35,26 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.deepPurple[100],
-        appBar: AppBar(
-          backgroundColor: Colors.deepPurple[300],
-          centerTitle: true,
-          title: Text("TASKS TO BE COMPLETED!"),
-          elevation: 0,
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.add),
-        ),
-        body: ListView.builder(
-            itemCount: toDoList.length,
-            itemBuilder: (context, index) {
-              return ToDoTile(
-                taskName: toDoList[index][0],
-                taskCompleted: toDoList[index][1],
-                onChanged: (value) => checkBox(value, index),
-              );
-            }));
+      backgroundColor: Colors.deepPurple[100],
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple[300],
+        centerTitle: true,
+        title: Text("TASKS TO BE COMPLETED!"),
+        elevation: 0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
+      body: ListView.builder(
+          itemCount: toDoList.length,
+          itemBuilder: (context, index) {
+            return ToDoTile(
+              taskName: toDoList[index][0],
+              taskCompleted: toDoList[index][1],
+              onChanged: (value) => checkBox(value, index),
+            );
+          }),
+    );
   }
 }

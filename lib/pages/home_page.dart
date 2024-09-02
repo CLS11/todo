@@ -10,6 +10,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //Text controller
+  final _controller = TextEditingController();
+
   //Tasks list
   List toDoList = [
     ["Workout", false],
@@ -20,24 +23,29 @@ class _HomePageState extends State<HomePage> {
   void checkBox(bool? value, int index) {
     setState(() {
       toDoList[index][1] = !toDoList[index][1];
+      _controller.clear();
     });
   }
+
 //Saving tasks
-void savenewtasks()
-{
-  setState((){
-    toDoList.add([_controller.text,false]);
-  });
-  Navigator.of(context).pop();
-}
+  void saveNewTasks() {
+    setState(() {
+      toDoList.add([_controller.text, false]);
+    });
+    Navigator.of(context).pop();
+  }
+
   //Adding tasks
-  void newtasks() {
+  void newTasks() {
     showDialog(
         context: context,
         builder: (context) {
-          return const DialogBox();
-        }
-    );
+          return DialogBox(
+            controller: _controller,
+            onSave: saveNewTasks,
+            onCancel: () => Navigator.of(context).pop(),
+          );
+        });
   }
 
   @override
@@ -51,9 +59,8 @@ void savenewtasks()
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: newtasks,
-        child:  Icon(Icons.add),
-
+        onPressed: newTasks,
+        child: Icon(Icons.add),
       ),
       body: ListView.builder(
           itemCount: toDoList.length,

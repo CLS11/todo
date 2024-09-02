@@ -6,7 +6,7 @@ class DialogBox extends StatelessWidget {
   VoidCallback onSave;
   VoidCallback onCancel;
 
-   DialogBox({
+  DialogBox({
     super.key,
     required this.controller,
     required this.onSave,
@@ -19,28 +19,31 @@ class DialogBox extends StatelessWidget {
       backgroundColor: Colors.deepPurple[400],
       content: Container(
         height: 120,
-        child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          //Getting input from user
-          TextField(
-            controller: controller,
-            decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: "Add a new task..",
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            //Getting input from user
+            TextField(
+              controller: controller,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Add a new task..",
+              ),
             ),
-          ),
 
-          //Buttons for saving and cancelling
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              //Saving button
-              Button(text: "Save", onPressed: onSave),
-              //Cancel button
-              Button(text: "Cancel", onPressed: onCancel),
-            ],
-          ),
-         ],
+            //Buttons for saving and cancelling
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                //Saving button
+                Button(text: "Save", onPressed: onSave),
+                //Sizing between save and cancel button
+                SizedBox(width: 10),
+                //Cancel button
+                Button(text: "Cancel", onPressed: onCancel),
+              ],
+            ),
+          ],
         ),
       ),
     );
